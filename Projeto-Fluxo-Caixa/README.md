@@ -94,29 +94,29 @@ Nesta etapa foi construída a tabela de dimensão calendário, fundamental para 
 - Criado o parâmetro `DataInicial`, do tipo Data, com valor atual definido como 02/01/2023.
   - **Perspectiva de negócio:** define o início do período de análise, evitando lacunas nos relatórios e garantindo consistência nos acumulados.
 
-![Calendário parte 1](Projeto-Fluxo-Caixa/Imagens/Calendario%20parte%201.png)
+![Calendário parte 1](Imagens/Calendario%20parte%201.png)
 
 - Criado o parâmetro `DataFinal`, do tipo Data, com valor dinâmico baseado na data atual do sistema, utilizando a expressão `Date.From(DateTime.LocalNow())`.
   - **Perspectiva de negócio:** ao usar a data atual, o calendário se atualiza automaticamente sem necessidade de intervenção manual.
 
-![Calendário parte 2](Projeto-Fluxo-Caixa/Imagens/Calendario%20parte%202.png)
+![Calendário parte 2](Imagens/Calendario%20parte%202.png)
 
 - Com os dois parâmetros definidos, gera-se uma lista de números inteiros que representam cada dia dentro do intervalo utilizando a expressão `{ Number.From(DataInicial) .. Number.From(DataFinal) }`, etapa nomeada como **Lista**.
   - **Perspectiva de negócio:** essa abordagem garante que todos os dias do período sejam contemplados, evitando lacunas que poderiam comprometer cálculos acumulados.
 
-![Calendário parte 3](Projeto-Fluxo-Caixa/Imagens/Calendario%20parte%203.png)
+![Calendário parte 3](Imagens/Calendario%20parte%203.png)
 
 - A lista numérica é convertida em datas legíveis com a função `Date.From`, utilizando a expressão `List.Transform(Lista, Date.From)`, etapa nomeada como **Datas**.
   - **Perspectiva de negócio:** essa conversão permite que os dados sejam reconhecidos como datas válidas pelo modelo, habilitando ordenações cronológicas e segmentações por período.
 
-![Calendário parte 4](Projeto-Fluxo-Caixa/Imagens/Calendario%20parte%204.png)
+![Calendário parte 4](Imagens/Calendario%20parte%204.png)
 
 - Com a lista de datas pronta, estrutura-se a tabela final utilizando o Editor Avançado, por meio da função `#table`, criando as colunas: `Data`, `Ano`, `Mês`, `MesAbrev`, `MesNum` e `Dia`.
   - **Perspectiva de negócio:** o uso da cultura `pt-BR` assegura que os nomes e abreviações dos meses sejam exibidos em português, evitando inconsistências nos relatórios.
 
-![Calendário parte 5](Projeto-Fluxo-Caixa/Imagens/Calendario%20parte%205.png)
+![Calendário parte 5](Imagens/Calendario%20parte%205.png)
 
-![Calendário parte 6](Projeto-Fluxo-Caixa/Imagens/Calendario%20parte%206.png)
+![Calendário parte 6](Imagens/Calendario%20parte%206.png)
 
 ---
 
@@ -130,9 +130,9 @@ Objetivo: alterar o tipo de dados da coluna `Banco_ID` de Número Decimal para N
 - Clicar no ícone de tipo de dados ao lado do nome da coluna
 - Selecionar a opção **Número Inteiro** no menu de tipos disponíveis
 
-![dBancos 1](Projeto-Fluxo-Caixa/Imagens/dBancos1.png)
-![dBancos 2](Projeto-Fluxo-Caixa/Imagens/dBancos2.png)
-![dBancos 3](Projeto-Fluxo-Caixa/Imagens/dBancos3.png)
+![dBancos 1](Imagens/dBancos1.png)
+![dBancos 2](Imagens/dBancos2.png)
+![dBancos 3](Imagens/dBancos3.png)
 
 **Perspectiva de negócio:**
 - A coluna `Banco_ID` representa um identificador único
@@ -149,9 +149,9 @@ Objetivo: alterar o tipo de dados das colunas `Subgrupo_ID` e `Conta_ID` de Núm
 - Ir em **Tipo de Dados**
 - Alterar de Número Decimal para Número Inteiro
 
-![dContas 1](Projeto-Fluxo-Caixa/Imagens/dContas1.png)
-![dContas 2](Projeto-Fluxo-Caixa/Imagens/dContas2.png)
-![dContas 3](Projeto-Fluxo-Caixa/Imagens/dContas3.png)
+![dContas 1](Imagens/dContas1.png)
+![dContas 2](Imagens/dContas2.png)
+![dContas 3](Imagens/dContas3.png)
 
 **Perspectiva de negócio:**
 - As colunas `Subgrupo_ID` e `Conta_ID` representam identificadores únicos
@@ -166,29 +166,29 @@ Objetivo: alterar o tipo de dados das colunas `Subgrupo_ID` e `Conta_ID` de Núm
 - A junção foi feita pela coluna Conta (texto)
 - Foram selecionadas apenas as colunas `Conta_ID` e `Conta` da tabela dContas
 
-![fMovimentos 1](Projeto-Fluxo-Caixa/Imagens/fMovimentos1.png)
-![fMovimentos 2](Projeto-Fluxo-Caixa/Imagens/fMovimentos2.png)
+![fMovimentos 1](Imagens/fMovimentos1.png)
+![fMovimentos 2](Imagens/fMovimentos2.png)
 
 **Junção com a tabela dBancos:**
 - Foi utilizada a função `Table.Join` para unir a tabela JoinContaID com a tabela dBancos
 - A junção foi feita pela coluna Banco (texto)
 
-![fMovimentos 3](Projeto-Fluxo-Caixa/Imagens/fMovimentos3.png)
-![fMovimentos 4](Projeto-Fluxo-Caixa/Imagens/fMovimentos4.png)
+![fMovimentos 3](Imagens/fMovimentos3.png)
+![fMovimentos 4](Imagens/fMovimentos4.png)
 
 **Limpeza e transformação de colunas:**
 - Na aba Página Inicial, foi utilizada a função **Remover Colunas** para manter apenas: `Data`, `Banco_ID`, `Conta_ID`, `Tipo` e `Valor`
 
-![fMovimentos 5](Projeto-Fluxo-Caixa/Imagens/fMovimentos5.png)
+![fMovimentos 5](Imagens/fMovimentos5.png)
 
 - Na aba **Transformar**, foi aplicada a função **Extrair → Primeiros caracteres** na coluna `Tipo`, configurando para extrair apenas 1 caractere
 - Com essa mudança, a coluna passou a mostrar apenas **E** (Entradas) e **S** (Saídas)
 
-![fMovimentos 6](Projeto-Fluxo-Caixa/Imagens/fMovimentos6.png)
+![fMovimentos 6](Imagens/fMovimentos6.png)
 
 - Na coluna `Valor`, foi alterado o tipo de dados para **Número decimal fixo**, garantindo precisão nos cálculos financeiros
 
-![fMovimentos 7](Projeto-Fluxo-Caixa/Imagens/fMovimentos7.png)
+![fMovimentos 7](Imagens/fMovimentos7.png)
 
 **Perspectiva de negócio:**
 - A junção com dContas trouxe o `Conta_ID`, permitindo que os relatórios se relacionem de forma confiável com a dimensão de contas
@@ -204,8 +204,8 @@ Objetivo: alterar o tipo de dados das colunas `Subgrupo_ID` e `Conta_ID` de Núm
 - Na coluna `Banco_ID`, o tipo de dados foi alterado de Número Decimal para Número Inteiro
 - Na coluna `Valor`, o tipo de dados foi alterado de Número Decimal para Número Decimal Fixo
 
-![fSaldoAnterior 1](Projeto-Fluxo-Caixa/Imagens/fSaldoAnterior1.png)
-![fSaldoAnterior 2](Projeto-Fluxo-Caixa/Imagens/fSaldoAnterior2.png)
+![fSaldoAnterior 1](Imagens/fSaldoAnterior1.png)
+![fSaldoAnterior 2](Imagens/fSaldoAnterior2.png)
 
 **Perspectiva de negócio:** essas transformações asseguram que o saldo inicial seja corretamente incorporado ao fluxo de caixa, evitando distorções nos valores apresentados nos dashboards.
 
@@ -215,7 +215,7 @@ Objetivo: alterar o tipo de dados das colunas `Subgrupo_ID` e `Conta_ID` de Núm
 
 O modelo foi estruturado em formato dimensional do tipo **estrela**, no qual a tabela `fMovimentos` atua como fato principal, concentrando os registros de entradas e saídas de caixa. As dimensões `dBancos`, `dContas` e `dCalendario` fornecem o contexto analítico para as movimentações. A tabela `fSaldoAnterior` se relaciona à dimensão `dBancos`, sendo utilizada para compor o saldo inicial do fluxo de caixa.
 
-![Relacionamentos](Projeto-Fluxo-Caixa/Imagens/Relacionamentos.png)
+![Relacionamentos](Imagens/Relacionamentos.png)
 
 ---
 
@@ -337,7 +337,7 @@ Onde:
 
 ### 4.6 Tabela de Mapeamento dos KPIs
 
-![Tabela de Mapeamento dos KPIs](Projeto-Fluxo-Caixa/Imagens/Tabela%20de%20Mapeamento%20dos%20KPIs%20.png)
+![Tabela de Mapeamento dos KPIs](Imagens/Tabela%20de%20Mapeamento%20dos%20KPIs%20.png)
 
 | KPI | Processo Monitorado | Fonte de Dados | Regra de Cálculo |
 |---|---|---|---|
@@ -449,7 +449,7 @@ O dashboard de Demonstração de Fluxo de Caixa foi desenvolvido para consolidar
 
 A partir dessa visão geral, é possível identificar rapidamente a posição financeira da empresa, compreender o comportamento do fluxo de caixa e direcionar a análise para os gráficos específicos apresentados nas seções seguintes.
 
-![Painel de Controle](Projeto-Fluxo-Caixa/Imagens/Painel%20de%20controle.png)
+![Painel de Controle](Imagens/Painel%20de%20controle.png)
 
 ---
 
@@ -460,7 +460,7 @@ A partir dessa visão geral, é possível identificar rapidamente a posição fi
 - Medida Saídas Abs
 - Colunas da tabela dCalendario: Ano e Mês
 
-![Entradas e Saídas por Ano e Mês](Projeto-Fluxo-Caixa/Imagens/Entradas%20e%20Saidas%20por%20Ano%20e%20Mes.png)
+![Entradas e Saídas por Ano e Mês](Imagens/Entradas%20e%20Saidas%20por%20Ano%20e%20Mes.png)
 
 **O que o gráfico mostra:**
 Este gráfico apresenta a evolução mensal das entradas e das saídas financeiras ao longo do período analisado. As entradas são exibidas como valores positivos e as saídas são apresentadas em valor absoluto, facilitando a comparação visual entre os fluxos de entrada e saída de caixa.
@@ -478,7 +478,7 @@ Este gráfico apresenta a evolução mensal das entradas e das saídas financeir
 - Medida Saldo Final
 - Colunas da tabela dBancos: Banco
 
-![Saldo por Banco](Projeto-Fluxo-Caixa/Imagens/Saldo%20por%20Banco.png)
+![Saldo por Banco](Imagens/Saldo%20por%20Banco.png)
 
 **O que o gráfico mostra:**
 O gráfico apresenta o saldo final consolidado por instituição bancária, evidenciando a distribuição dos recursos financeiros entre os bancos.
@@ -496,7 +496,7 @@ O gráfico apresenta o saldo final consolidado por instituição bancária, evid
 - Medida Entradas
 - Colunas da tabela dContas: Subgrupo e Conta
 
-![Entradas por Subgrupo](Projeto-Fluxo-Caixa/Imagens/Entradas%20por%20Subgrupo.png)
+![Entradas por Subgrupo](Imagens/Entradas%20por%20Subgrupo.png)
 
 **O que o gráfico mostra:**
 Este gráfico apresenta a composição das entradas financeiras, agrupadas por subgrupo e conta, permitindo identificar quais tipos de receitas mais contribuem para a geração de caixa.
@@ -514,7 +514,7 @@ Este gráfico apresenta a composição das entradas financeiras, agrupadas por s
 - Medida Saídas Abs
 - Colunas da tabela dContas: Subgrupo e Conta
 
-![Saídas por Subgrupo](Projeto-Fluxo-Caixa/Imagens/Saidas%20por%20Subgrupo%20.png)
+![Saídas por Subgrupo](Imagens/Saidas%20por%20Subgrupo%20.png)
 
 **O que o gráfico mostra:**
 Este gráfico apresenta a composição das saídas financeiras, agrupadas por subgrupo e conta, permitindo identificar quais tipos de despesas mais impactam o caixa da empresa.
@@ -532,7 +532,7 @@ Este gráfico apresenta a composição das saídas financeiras, agrupadas por su
 - Medida Saldo Operacional
 - Colunas da tabela dCalendario: Ano e Mês
 
-![Saldo Operacional por Ano e Mês](Projeto-Fluxo-Caixa/Imagens/Saldo%20Operacional%20por%20Ano%20e%20Mes.png)
+![Saldo Operacional por Ano e Mês](Imagens/Saldo%20Operacional%20por%20Ano%20e%20Mes.png)
 
 **O que o gráfico mostra:**
 Este gráfico apresenta a evolução mensal do saldo operacional ao longo dos anos analisados, evidenciando os períodos em que a operação gerou resultado positivo ou negativo. O saldo operacional representa a diferença entre entradas e saídas em cada mês, permitindo avaliar a eficiência financeira da operação no curto prazo. Observa-se a alternância entre meses com resultado positivo e negativo, bem como a intensidade dessas variações ao longo do tempo.
@@ -553,7 +553,7 @@ Este gráfico apresenta a evolução mensal do saldo operacional ao longo dos an
 - Colunas da tabela dContas: Subgrupo e Conta
 - Coluna da tabela dGrupos: Grupo
 
-![Matriz de Detalhamento](Projeto-Fluxo-Caixa/Imagens/Metriz%20de%20Detalhamento.png)
+![Matriz de Detalhamento](Imagens/Metriz%20de%20Detalhamento.png)
 
 **O que a matriz mostra:**
 A matriz apresenta o detalhamento mensal do fluxo de caixa, exibindo as entradas, saídas e saldos organizados por grupo, subgrupo e conta. Essa visualização permite acompanhar de forma estruturada como cada categoria financeira contribui para o resultado do caixa ao longo do período analisado.
