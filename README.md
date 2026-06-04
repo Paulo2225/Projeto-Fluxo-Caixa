@@ -130,7 +130,7 @@ Objetivo: alterar o tipo de dados da coluna `Banco_ID` de Número Decimal para N
 - Clicar no ícone de tipo de dados ao lado do nome da coluna
 - Selecionar a opção **Número Inteiro** no menu de tipos disponíveis
 
-![dBancos 1](Imagens/dBanco1.png) ![dBancos 2](Imagens/dBanco2.png) ![dBancos 3](Imagens/dBanco3.png)
+![dBancos 1](Imagens/dBancos1.png) ![dBancos 2](Imagens/dBancos2.png) ![dBancos 3](Imagens/dBancos3.png)
 
 **Perspectiva de negócio:**
 - A coluna `Banco_ID` representa um identificador único
@@ -459,7 +459,7 @@ A partir dessa visão geral, é possível identificar rapidamente a posição fi
 - Medida Saídas Abs
 - Colunas da tabela dCalendario: Ano e Mês
 
-![Entradas e Saídas por Ano e Mês](Imagens/Entradas_e_Saídas_por_Ano_e_Mês.png)
+![Entradas e Saídas por Ano e Mês](Imagens/Entradas_e_Sa%C3%ADdas_por_%20Ano_e_M%C3%AAs.png)
 
 **O que o gráfico mostra:**
 Este gráfico apresenta a evolução mensal das entradas e das saídas financeiras ao longo do período analisado. As entradas são exibidas como valores positivos e as saídas são apresentadas em valor absoluto, facilitando a comparação visual entre os fluxos de entrada e saída de caixa.
@@ -513,7 +513,7 @@ Este gráfico apresenta a composição das entradas financeiras, agrupadas por s
 - Medida Saídas Abs
 - Colunas da tabela dContas: Subgrupo e Conta
 
-![Saídas por Subgrupo](Imagens/Saídas_por_Subgrupo.png)
+![Saídas por Subgrupo](Imagens/Sa%C3%ADdas_por_Subgrupo.png)
 
 **O que o gráfico mostra:**
 Este gráfico apresenta a composição das saídas financeiras, agrupadas por subgrupo e conta, permitindo identificar quais tipos de despesas mais impactam o caixa da empresa.
@@ -531,7 +531,7 @@ Este gráfico apresenta a composição das saídas financeiras, agrupadas por su
 - Medida Saldo Operacional
 - Colunas da tabela dCalendario: Ano e Mês
 
-![Saldo Operacional por Ano e Mês](Imagens/Saldo_Operacional_por_Ano_e_Mês.png)
+![Saldo Operacional por Ano e Mês](Imagens/Saldo_Operacional_por_Ano_e_M%C3%AAs.png)
 
 **O que o gráfico mostra:**
 Este gráfico apresenta a evolução mensal do saldo operacional ao longo dos anos analisados, evidenciando os períodos em que a operação gerou resultado positivo ou negativo. O saldo operacional representa a diferença entre entradas e saídas em cada mês, permitindo avaliar a eficiência financeira da operação no curto prazo. Observa-se a alternância entre meses com resultado positivo e negativo, bem como a intensidade dessas variações ao longo do tempo.
