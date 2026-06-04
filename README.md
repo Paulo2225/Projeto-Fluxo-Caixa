@@ -553,7 +553,7 @@ Este gráfico apresenta a evolução mensal do saldo operacional ao longo dos an
 - Colunas da tabela dContas: Subgrupo e Conta
 - Coluna da tabela dGrupos: Grupo
 
-![Matriz de Detalhamento](Projeto-Fluxo-Caixa/Imagens/Metriz%20de%20Detalhamento.png)
+![Matriz de Detalhamento](Projeto-Fluxo-Caixa/Imagens/Metriz_de_Detalhamento.png)
 
 **O que a matriz mostra:**
 A matriz apresenta o detalhamento mensal do fluxo de caixa, exibindo as entradas, saídas e saldos organizados por grupo, subgrupo e conta. Essa visualização permite acompanhar de forma estruturada como cada categoria financeira contribui para o resultado do caixa ao longo do período analisado.
